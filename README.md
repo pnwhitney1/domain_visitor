@@ -47,13 +47,12 @@ pattern and never duplicated.
 
 One more concept not explored in this example is stopping navigation at some 
 point. If for example you only needed to visit Customers and Orders and not go
-any deeper, then you might consider using exception to halt further navigation.
+any deeper, then you might consider using an exception to halt further navigation.
 A concrete visitor might throw an exception inside of its visit(Item) implementation.
 This can be effective if the graph is very deep and you need to stop. Note that 
 that the navigation is in the Domain and you are implementing Visitors to change
 logic. You don't / can't have stop logic in your domain or you would impact other
-navigations. Therefore early stop has to be in the Visitor implementation.
-
+navigations. Therefore early stop has to be in the Visitor implementation.  
 
 ## Arguments
 The program takes no arguments  

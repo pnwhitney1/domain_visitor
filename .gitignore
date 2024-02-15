@@ -1,2 +1,3 @@
 .idea/
+target/
 domain_visitor.iml
