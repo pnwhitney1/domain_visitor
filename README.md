@@ -35,8 +35,25 @@ IDomainAcceptVisitor interface. These implementations are coded to execute
 either a self visit followed by a child object accept invocation (breadth first)
 or a child object accept visitation followed by a self visit (depth first).  
 
-The PrintoutOnVisitVisitor provides the implementation of exactly what to do
-when objects are visited.  
+The PrintoutOnVisitVisitor provides two example implementations of something that
+is done when objects are visited. To accomplish different business logic one would 
+simply provide your own implementation of IDomainVisitor. 
+CrudObjectSaver implements IDomainVisitor might be one such example.
+RelationshipExtractor implements IDomainVisitor might be another example.
+The RelationshipExtractor might navidate the domain graph and collect all 
+parent / child ids to be stored in NodeJS. The possibilities are endless!
+The primary value is that navigation logic is encapsulated in the visitor
+pattern and never duplicated.
+
+One more concept not explored in this example is stopping navigation at some 
+point. If for example you only needed to visit Customers and Orders and not go
+any deeper, then you might consider using exception to halt further navigation.
+A concrete visitor might throw an exception inside of its visit(Item) implementation.
+This can be effective if the graph is very deep and you need to stop. Note that 
+that the navigation is in the Domain and you are implementing Visitors to change
+logic. You don't / can't have stop logic in your domain or you would impact other
+navigations. Therefore early stop has to be in the Visitor implementation.
+
 
 ## Arguments
 The program takes no arguments  

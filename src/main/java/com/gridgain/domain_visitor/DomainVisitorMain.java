@@ -9,7 +9,7 @@ public class DomainVisitorMain {
         Customer c = buildDomainGraph();
         System.out.println(" ");
         System.out.println("Breadth first visitation");
-        visitBreadthFirs(c);
+        visitBreadthFirst(c);
         System.out.println(" ");
         System.out.println("Depth first visitation");
         visitDepthFirst(c);
@@ -29,7 +29,7 @@ public class DomainVisitorMain {
         return c;
     }
 
-    private static void visitBreadthFirs(Customer c) {
+    private static void visitBreadthFirst(Customer c) {
         PrintoutOnVisitVisitor pov = new PrintoutOnVisitVisitor();
         c.acceptBreadthFirst(pov);
     }
